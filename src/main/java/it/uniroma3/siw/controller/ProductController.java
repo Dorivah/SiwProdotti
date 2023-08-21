@@ -1,8 +1,10 @@
 package it.uniroma3.siw.controller;
 
+import it.uniroma3.siw.controller.validator.ProductValidator;
 import it.uniroma3.siw.model.Product;
 import it.uniroma3.siw.repository.ProductRepository;
 import it.uniroma3.siw.repository.ProviderRepository;
+import it.uniroma3.siw.service.ProductService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,7 +37,7 @@ public class ProductController {
 
     @PostMapping("/admin/uploadProduct")
     public String newProduct(Model model, @Valid @ModelAttribute("product") Product product, BindingResult bindingResult,
-                            @RequestParam("file") MultipartFile image) throws IOException {
+                             @RequestParam("file") MultipartFile image) throws IOException {
         this.productValidator.validate(product, bindingResult);
         if (!bindingResult.hasErrors()) {
             /*
@@ -45,13 +47,7 @@ public class ProductController {
              * productImgs.add(picture);
              * }
              */
-            /*
-             * Image productImg = new Image(image.getBytes());
-             * this.imageRepository.save(productImg);
-             *
-             * product.setImage(productImg);
-             * this.productRepository.save(product);
-             */
+
 
             this.productService.createProduct(product, image);
             return this.productService.function(model, product, globalController.getUser());
@@ -101,24 +97,24 @@ public class ProductController {
     public String updateProductProvider(Model model, @PathVariable("productId") Long productId) {
         Product product = this.productRepository.findById(productId).get();
         model.addAttribute("product", product);
-        model.addAttribute("choices", this.providerRepository.getProvidersByProductsNotContaining(product));
+        model.addAttribute("choices", this.providerRepository.getProvidersByStarredProductsNotContaining(product));
         return "admin/formAddProviders.html";
     }
 
     @GetMapping("/admin/manage/setProvider/{productId}/{providerId}")
     public String setProductProvider(Model model, @PathVariable("productId") Long productId,
-                                @PathVariable("providerId") Long providerId) {
+                                     @PathVariable("providerId") Long providerId) {
         Product product = this.productRepository.findById(productId).get();
         this.productService.setProviderToProduct(product, providerId);
 
         model.addAttribute("product", product);
         model.addAttribute("providers", product.getProviders());
 
-        return "admin/formUpdateProduct.html";
+        return "admin/formUpdateId.html";
     }
 
     @GetMapping("/admin/manage/removeProvider/{productId}/{providerId}")
-    public String removeProductProvider(Model model, @PathVariable("productId") Long productId,
+    public String removeIdProvider(Model model, @PathVariable("productId") Long productId,
                                    @PathVariable("providerId") Long providerId) {
         Product product = this.productRepository.findById(productId).get();
         this.productService.removeProviderToProduct(product, providerId);

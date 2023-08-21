@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import org.hibernate.validator.constraints.Length;
 
-import javax.xml.stream.events.Comment;
 import java.util.Objects;
 import java.util.Set;
 
@@ -32,8 +31,8 @@ public class Product {
     @ManyToMany
     private Set<Provider> providers;
 
-    @OneToMany (mappedBy = "commentedProduct",cascade = CascadeType.ALL)
-    private Set<Comment> comments;
+    @OneToMany (mappedBy = "reviewedProduct",cascade = CascadeType.ALL)
+    private Set<Review> reviews;
 
     public Long getId() {
         return id;
@@ -83,12 +82,12 @@ public class Product {
         this.foto = foto;
     }
 
-    public Set<Comment> getReviews() {
-        return comments;
+    public Set<Review> getReviews() {
+        return reviews;
     }
 
-    public void setReviews(Set<Comment> comments) {
-        this.comments = comments;
+    public void setReviews(Set<Review> reviews) {
+        this.reviews = reviews;
     }
 
     @Override

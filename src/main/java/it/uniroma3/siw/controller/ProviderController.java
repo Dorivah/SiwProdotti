@@ -1,9 +1,11 @@
 package it.uniroma3.siw.controller;
 
-import it.uniroma3.siw.model.Image;
+
+import it.uniroma3.siw.controller.validator.ProviderValidator;
 import it.uniroma3.siw.model.Provider;
-import it.uniroma3.siw.repository.ImageRepository;
+import it.uniroma3.siw.model.Image;
 import it.uniroma3.siw.repository.ProviderRepository;
+import it.uniroma3.siw.repository.ImageRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -64,7 +66,7 @@ public class ProviderController {
         Provider provider = this.providerRepository.findById(id).get();
         model.addAttribute("provider", this.providerRepository.findById(id).get());
 
-        model.addAttribute("products", provider.getProducts());
+        model.addAttribute("starredProducts", provider.getStarredProducts());
         return "provider.html";
     }
 
