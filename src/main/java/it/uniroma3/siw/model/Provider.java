@@ -1,6 +1,7 @@
 package it.uniroma3.siw.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 import java.util.Objects;
 import java.util.Set;
@@ -12,17 +13,20 @@ public class Provider {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotBlank
     private String name;
 
-    private String email;
-
+    @NotBlank
     private String address;
+
+    @NotBlank
+    private String email;
 
     @OneToOne
     private Image logo;
 
-    @ManyToMany
-    private Set<Product> products;
+    @ManyToMany(mappedBy="providers",fetch = FetchType.LAZY)
+    private Set<Product> starredProducts;
 
     public Long getId() {
         return id;
@@ -40,14 +44,6 @@ public class Provider {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getAddress() {
         return address;
     }
@@ -56,12 +52,19 @@ public class Provider {
         this.address = address;
     }
 
-    public Set<Product> getProducts() {
-        return products;
+    public String getEmail() {
+        return email;
     }
 
-    public void setProducts(Set<Product> products) {
-        this.products = products;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Set<Product> getStarredProducts() {
+        return starredProducts;
+    }
+    public void setStarredProducts(Set<Product> starredProducts) {
+        this.starredProducts = starredProducts;
     }
 
     public Image getLogo() {
@@ -77,11 +80,11 @@ public class Provider {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Provider provider = (Provider) o;
-        return Objects.equals(name, provider.name) && Objects.equals(email, provider.email) && Objects.equals(address, provider.address);
+        return Objects.equals(name, provider.name) && Objects.equals(address, provider.address);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, email, address);
+        return Objects.hash(name, address, email);
     }
 }

@@ -1,8 +1,10 @@
 package it.uniroma3.siw.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import org.hibernate.validator.constraints.Length;
 
+import javax.xml.stream.events.Comment;
 import java.util.Objects;
 import java.util.Set;
 
@@ -13,19 +15,25 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotBlank
     private String name;
 
-    private Integer price;
+    @NotBlank
+    private Float price;
 
     @Column(length = 200)
-    @Length(max = 200)
+    @Length(max = 300)
     private String description;
 
-    @ManyToMany(mappedBy = "products")
+    @OneToOne
+    Image foto;
+
+
+    @ManyToMany
     private Set<Provider> providers;
 
-    @OneToOne
-    private Image foto;
+    @OneToMany (mappedBy = "commentedProduct",cascade = CascadeType.ALL)
+    private Set<Comment> comments;
 
     public Long getId() {
         return id;
@@ -43,20 +51,12 @@ public class Product {
         this.name = name;
     }
 
-    public Integer getPrice() {
+    public Float getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(Float price) {
         this.price = price;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public Set<Provider> getProviders() {
@@ -67,12 +67,28 @@ public class Product {
         this.providers = providers;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public Image getFoto() {
         return foto;
     }
 
     public void setFoto(Image foto) {
         this.foto = foto;
+    }
+
+    public Set<Comment> getReviews() {
+        return comments;
+    }
+
+    public void setReviews(Set<Comment> comments) {
+        this.comments = comments;
     }
 
     @Override
