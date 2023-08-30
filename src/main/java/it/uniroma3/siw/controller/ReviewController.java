@@ -37,7 +37,7 @@ public class ReviewController {
         if(!bindingResult.hasErrors()){
             if(this.globalController.getUser() != null && !product.getReviews().contains(review)){
                 review.setAuthor(this.globalController.getUser().getUsername());
-                review.setReviewedPlayer(productRepository.findById(id).orElse(null));
+                review.setReviewedProduct(productRepository.findById(id).orElse(null));
                 this.reviewRepository.save(review);
                 product.getReviews().add(review);
 
