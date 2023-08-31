@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+
 @Controller
 public class AuthenticationController {
     @Autowired
@@ -36,7 +37,7 @@ public class AuthenticationController {
 
     @GetMapping("/index")
     public String index(){
-        return "homePage.html";
+        return "index.html";
     }
 
     @GetMapping(value = "/register")
@@ -62,7 +63,7 @@ public class AuthenticationController {
             UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             Credentials credentials = credentialsService.getCredentials(userDetails.getUsername());
             if(credentials.getRole().equals(Credentials.ADMIN_ROLE)){
-                return "admin/homePageAdmin.html";
+                return "admin/homePageAdmin.html";        //farlo diverso per l'admin
             } else {
                 return "index.html";
             }
@@ -87,4 +88,16 @@ public class AuthenticationController {
         }
         return "formRegister.html";
     }
+
+    @GetMapping(value = "/success")
+    public String defaultAfterLogin(Model model) {
+
+        UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Credentials credentials = credentialsService.getCredentials(userDetails.getUsername());
+        if (credentials.getRole().equals(Credentials.ADMIN_ROLE)) {
+            return "admin/homePageAdmin.html";
+        }
+        return "index.html";
+    }
+
 }
