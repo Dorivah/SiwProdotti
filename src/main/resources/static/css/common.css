@@ -18,7 +18,7 @@ body {
 
 /* Navigation */
 nav {
-    background:linear-gradient(to right, white, sandybrown, darkgoldenrod);
+    background:linear-gradient(to right, white, sandybrown, darkorange);
     color: black;
     display: flex;
     align-items: center;
