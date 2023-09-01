@@ -58,39 +58,13 @@ nav ul li .sub:hover {
 }
 
 /* Login/Logout buttons */
-/*
-#lo {
-    display: flex;
-    align-items: center;
-}
-
-#lo .log {
-    border: none;
-    background: #f0bc42;
-    background: linear-gradient(45deg, orange, #f0bc42);
-    padding: 12px 30px;
-    border-radius: 30px;
-    color: #8e1f2f;
-    font-weight: bold;
-    font-size: 15px;
-    transition: .4s;
-    text-decoration: none;
-}
-
-#lo .log:hover {
-    transform: scale(1.3);
-    background-color: white;
-    color: #333;
-}
-*/
-
 button {
-    /*
-    position: absolute;
-    right: 20px;
-    top: 40px;*/
+    border: none;
+    background-color: rgba(0,0,0,0);
+}
 
 
+.log{
     border: none;
     /*background: #f0bc42;*/
     background-image: linear-gradient(to left, silver , darkgray , cornsilk , sandybrown );
@@ -104,7 +78,7 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.log:hover {
     background-position: 100% 0;
 }
 
@@ -116,7 +90,6 @@ button:hover {
 
 .log {
     text-decoration: none;
-    color: #8e1f2f;
 }
 
 .log:visited {
