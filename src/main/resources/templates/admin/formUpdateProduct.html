@@ -39,7 +39,7 @@
     <div class="product-providers">
       <div class="label">
         <div class="main-label">
-          <h3>Providers:</h3>
+          <h3>Fornitori:</h3>
           <button type="button">
             <a th:href="'/admin/manage/addProvider/'+${product.id}" class="log">Update</a>
           </button>
@@ -57,7 +57,7 @@
                   <div class="card-overlay">
                     <button class="overlay-button">
                       <a th:href="@{'/admin/manage/removeprovider/' + ${product.id} + '/' + ${provider.id}}" class="log">
-                        remove
+                        Remove
                       </a>
                     </button>
                   </div>

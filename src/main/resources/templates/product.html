@@ -35,7 +35,7 @@
     <img th:src="@{'/display/image/' + ${product.foto.id}}">
     <!--<img th:src="@{'data:image/*;base64,'+${product.image.base64Image}}">-->
   </div>
-  <div class="player-content">
+  <div class="product-content">
     <h1 th:text="${product.name} +  ', ' + ${product.price} + '$'">Nome, prezzo</h1>
     <p th:text="${product.description}">Product Description</p>
     <button th:if="${role != null && role == 'ADMIN'}" class="update-product">

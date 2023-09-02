@@ -7,12 +7,11 @@
   <link rel="stylesheet" href="/css/common.css">
   <link rel="stylesheet" href="/css/provider.css">
   <link rel="icon" href="/images/carrello.ico">
-  <link href="https://fonts.googleapis.com/css?family=Roboto Condensed" rel="stylesheet">
 </head>
 <body>
 <header></header>
 <nav>
-  <img src="/images/lupetto.jpg">
+  <img src="/images/omino_con_carrello.png">
   <h2 class="logo">Siw Prodotti</h2>
   <ul>
     <li><a href="/" class="sub">Home</a></li>
@@ -38,14 +37,14 @@
     </div>
     <div class="provider-content">
       <h1 th:text="${provider.name}">Provider name</h1>
-      <p th:text="${'Address: ' + provider.address}">Provider Address</p>
+      <p th:text="${'Indirizzo: ' + provider.address}">Provider Address</p>
       <p th:text="${'Email: ' + provider.email}">Provider Email</p>
     </div>
   </div>
   <div class="provider-product-content">
 
     <div class="starredproducts-content">
-      <h1>Starred Products</h1>
+      <h1>Prodotti Forniti</h1>
       <div class="products">
         <ul th:each="product : ${starredProducts}">
           <div class="cards">
@@ -53,7 +52,7 @@
               <!--<img th:src="@{'data:image/*;base64,'+${product.image.base64Image}}">-->
               <img th:src="@{'/display/image/' + ${product.foto.id}}">
               <div class="product-info">
-                <h4 th:text="${product.name + ',' + product.price}">.</h4>
+                <h4 th:text="${product.name + ', ' + product.price + '$'}">.</h4>
               </div>
             </a>
           </div>

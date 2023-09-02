@@ -35,7 +35,7 @@
   <div class="form-box">
     <div class="form-value">
       <form th:action="@{/admin/uploadProduct}" method="post" enctype="multipart/form-data" th:object="${product}" class="form">
-        <span class="title">New Product</span>
+        <span class="title">Nuovo Prodotto</span>
         <div th:if="${#fields.hasGlobalErrors()}">
           <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
         </div>
