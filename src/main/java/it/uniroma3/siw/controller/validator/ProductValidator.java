@@ -23,7 +23,7 @@ public class ProductValidator implements Validator {
         Product product = (Product) target;
         if(product.getName() != null && product.getPrice() != null
                 && productRepository.existsByNameAndPrice(product.getName(),product.getPrice())){
-            errors.reject("product.duplicate");
+            errors.reject("player.duplicate");
         }
     }
 }

@@ -68,11 +68,11 @@ public class Review {
         this.text = text;
     }
 
-    public Product getReviewedProduct() {
+    public Product getReviewedPlayer() {
         return reviewedProduct;
     }
 
-    public void setReviewedProduct(Product reviewedProduct) {
+    public void setReviewedPlayer(Product reviewedProduct) {
         this.reviewedProduct = reviewedProduct;
     }
 
