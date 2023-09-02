@@ -7,12 +7,11 @@
   <link rel="stylesheet" href="/css/common.css">
   <link rel="stylesheet" href="/css/products.css">
   <link rel="icon" href="/images/carrello.ico">
-  <link href="https://fonts.googleapis.com/css?family=Roboto Condensed" rel="stylesheet">
 </head>
 <body>
 <header></header>
 <nav>
-  <img src="/images/lupetto.jpg">
+  <img src="/images/omino_con_carrello.png">
   <h2 class="logo">Siw Prodotti</h2>
   <ul>
     <li><a href="/" class="sub">Home</a></li>
@@ -39,9 +38,10 @@
     </form>
     <!--bottone per ordinarli in base al rating-->
     <div class = sortButton>
-      <button class="overlay-button">
-        <a th:href="@{'/orderedProducts'}" class="log">
-          ordina
+      <span>Ordina in base alle recensioni degli utenti</span>
+      <button class="sort">
+        <a th:href="@{'/orderedProducts'}">
+          Ordina
         </a>
       </button>
     </div>
@@ -62,7 +62,7 @@
 
               <button th:if="${role != null && role == 'ADMIN'}" class="overlay-button">
                 <a th:href="@{'/admin/deleteProduct/' + ${product.id} }" class="log">
-                  remove
+                  Rimuovi
                 </a>
               </button>
             </div>
