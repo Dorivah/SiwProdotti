@@ -1,0 +1,150 @@
+/* Content */
+.content {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.21);
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    background-size: cover;
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.player-content {
+    flex: 1;
+    margin-left: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.update-product {
+    margin-top: 20px;
+}
+
+.product-providers-content {
+    margin-top: 20px;
+    background-size: cover;
+}
+
+.providers {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.providers .cards {
+    flex: 1;
+    margin: 10px;
+    text-align: center;
+}
+
+.providers img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.provider-info h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Product Review */
+.product-review-content {
+    display: flex;
+    justify-content: center;
+
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+
+    background-size: cover;
+
+}
+
+.form--input1,
+.form--input2,
+.comment-button {
+
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form--input1{
+    width: 40%;
+}
+
+.form--input1,
+.form--input2 {
+    font-size: 16px;
+}
+
+.comment-button {
+    width: 95%;
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 8px;
+}
+
+.comment-button:hover {
+    background-color: #555;
+}
+
+.other-review {
+    color:white;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-bottom: 2%;
+}
+
+.review {
+    background: rgba(128, 128, 128, 0.395);
+    border-radius: 30px;
+    padding: 2%;
+    margin-top: 2%;
+}
+
+.review p {
+    word-wrap: break-word;
+    font-size: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottom-label {
+    display: flex;
+    justify-content: space-between;
+}
+
+.norec{
+    color:white;
+    margin-left: 5%;
+}

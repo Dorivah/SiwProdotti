@@ -8,18 +8,17 @@
   <link rel="stylesheet" href="/css/common.css">
   <link rel="stylesheet" href="/css/product.css">
   <link rel="icon" href="/images/favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Roboto Condensed" rel="stylesheet">
 </head>
 
 <body>
 <header></header>
 <nav>
-  <img src="/images/lupetto.jpg">
+  <img src="/images/omino_con_carrello.png">
   <h2 class="logo">Siw Prodotti</h2>
   <ul>
     <li><a href="/" class="sub">Home</a></li>
-    <li><a href="/products" class="sub">Products</a></li>
-    <li><a href="/providers" class="sub">Providers</a></li>
+    <li><a href="/products" class="sub">Prodotti</a></li>
+    <li><a href="/providers" class="sub">Fornitori</a></li>
   </ul>
   <div id="lo">
     <div th:if="${userDetails}">
@@ -31,23 +30,22 @@
     </div>
   </div>
 </nav>
-<footer></footer>
 <div th:if="${product}" class="content">
   <div class="card">
     <img th:src="@{'/display/image/' + ${product.foto.id}}">
     <!--<img th:src="@{'data:image/*;base64,'+${product.image.base64Image}}">-->
   </div>
   <div class="player-content">
-    <h1 th:text="${product.name} +  ', ' + ${product.price} + '$'">Nome prodotto, prezzo prodotto</h1>
+    <h1 th:text="${product.name} +  ', ' + ${product.price} + '$'">Nome, prezzo</h1>
     <p th:text="${product.description}">Product Description</p>
     <button th:if="${role != null && role == 'ADMIN'}" class="update-product">
       <a th:href="'/admin/manage/' + ${product.id}" class="log">Update Product</a>
     </button>
     <div class="product-providers-content">
-      <h1>Clubs:</h1>
+      <h1>Fornitori:</h1>
       <div th:if="${product.providers}">
         <div th:if="${product.providers.isEmpty()}">
-          Nessun provider offre questo prodotto al momento.
+          Nessun fornitore offre questo prodotto al momento.
         </div>
         <div th:unless="${product.providers.isEmpty()}">
 
@@ -75,9 +73,9 @@
       <div th:if="${#fields.hasGlobalErrors()}">
         <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
       </div>
-      <input required type="text" placeholder="Title" name="title" th:field="${review.title}" class="form--input1">
+      <input required type="text" placeholder="Titolo" name="title" th:field="${review.title}" class="form--input1">
       <span th:if="${#fields.hasErrors('title')}" th:errors="*{review.title}"></span>
-      <input required type="text" placeholder="Text" name="text" th:field="${review.text}" class="form--input2">
+      <input required type="text" placeholder="Testo" name="text" th:field="${review.text}" class="form--input2">
       <span th:if="${#fields.hasErrors('text')}" th:errors="*{review.text}"></span>
       <div class="review-options">
         <input required type="number" min="1" max="5" name="rating" th:field="${review.rating}" id="animated-input">
@@ -90,7 +88,7 @@
 <div>
   <div th:if="${product.reviews}">
     <div th:if="${product.reviews.isEmpty()}">
-      <p>non ci sono review su questo prodotto</p>
+      <p class="norec">Non ci sono recensioni su questo prodotto</p>
     </div>
     <div th:unless="${product.reviews.isEmpty()}" class="other-review">
       <h1 style="padding-top: 2%; font-size: 40px;">Recensioni</h1>
@@ -103,9 +101,14 @@
           <p th:text="${rev.text}">.</p>
           <div class="bottom-label">
             <p th:text="'Rating: ' + ${rev.rating}">.</p>
+            <button th:if="${rev.author == userDetails.username}" class="update-review">
+            <a th:href="'/user/modifyingReview/' + ${product.id} + '/' + ${rev.id}" class="log">
+              Modifica
+            </a>
+            </button>
             <button th:if="${role != null && role == 'ADMIN'}" class="delete-review">
               <a th:href="'/admin/deleteReview/' + ${product.id} + '/' + ${rev.id}" class="log">
-                Delete
+                Cancella
               </a>
             </button>
           </div>
