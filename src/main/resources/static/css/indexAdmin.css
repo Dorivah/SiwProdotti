@@ -1,29 +1,35 @@
 /* Style the admin form */
 .admin-form {
-
-    padding: 20px;
-    margin: 20px;
+    height: 100vh;
+    width: 100%;
     border-radius: 10px;
+    color: white;
 }
 
 /* Style the operations menu */
 .operations-menu {
     text-align: center;
+    padding-top: 2%;
+    padding-left: 5%;
 }
 
 .operations-menu .title {
-    font-size: 30px;
+    font-size: 60px;
     margin-bottom: 20px;
+    font-weight: bold;
 }
 
 /* Style the sub-operation forms */
 .sub-operation-form {
-    margin-bottom: 20px;
+    padding-top: 2%;
+    padding-left: 2%;
+    padding-bottom: 2%;
 }
 
 .sub-operation-form h1 {
-    font-size: 20px;
+    font-size: 30px;
     margin-bottom: 10px;
+
 }
 
 /* Style the buttons in the sub-operation forms */
@@ -50,3 +56,4 @@
     text-decoration: none;
     color: black;
 }
+

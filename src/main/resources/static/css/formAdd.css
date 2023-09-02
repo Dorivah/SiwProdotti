@@ -1,0 +1,67 @@
+/* Form box */
+.form-box {
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    color: white;
+}
+
+.form-value {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.title {
+    color: sandybrown ;
+    letter-spacing: 2px;
+    display: block;
+    font-weight: bold;
+    /*font-size: x-large;*/
+    font-size: 35px;
+    margin-bottom: 0.5em;
+}
+
+.form--input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form--input:focus {
+    outline: none;
+    border-color: darkorange;
+}
+
+/* Button style */
+.cssbuttons-io-button {
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(to left, silver, cornsilk , sandybrown);
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .3s;
+
+}
+.cssbuttons-io-button:hover{
+    transform: scale(1.2);
+}
+.cssbuttons-io-button span {
+    margin-left: 5px;
+}
+
+
+
+/* Logo style */
+.logo {
+    font-size: 24px;
+}
+
+/* Username style */
+.username {
+    font-weight: bold;
+}
