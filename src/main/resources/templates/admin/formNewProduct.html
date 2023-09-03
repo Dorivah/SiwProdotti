@@ -17,8 +17,8 @@
   <h2 class="logo">Siw Prodotti</h2>
   <ul>
     <li><a href="/" class="sub">Home</a></li>
-    <li><a href="/products" class="sub">Products</a></li>
-    <li><a href="/providers" class="sub">Providers</a></li>
+    <li><a href="/products" class="sub">Prodotti</a></li>
+    <li><a href="/providers" class="sub">Fornitori</a></li>
   </ul>
   <div id="lo">
     <div th:if="${userDetails}">
@@ -40,13 +40,13 @@
           <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
         </div>
 
-        <input required type="text" th:field="${product.name}" placeholder="Name" class="form--input">
+        <input required type="text" th:field="${product.name}" placeholder="Nome" class="form--input">
         <span th:if="${#fields.hasErrors('name')}" th:errors="*{product.name}"></span>
 
-        <input required type="text" th:field="${product.price}" placeholder="Price" class="form--input">
+        <input required type="text" th:field="${product.price}" placeholder="Prezzo" class="form--input">
         <span th:if="${#fields.hasErrors('price')}" th:errors="*{product.price}"></span>
 
-        <input required type="text" th:field="${product.description}" maxlength="200" placeholder="Description" class="form--input">
+        <input required type="text" th:field="${product.description}" maxlength="200" placeholder="Descrizione prodotto" class="form--input">
         <span th:if="${#fields.hasErrors('description')}" th:errors="*{product.description}"></span>
 
         <span><input required type="file" name="file"></span>

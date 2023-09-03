@@ -37,9 +37,9 @@
   </div>
   <div class="product-content">
     <h1 th:text="${product.name} +  ', ' + ${product.price} + '$'">Nome, prezzo</h1>
-    <p th:text="${product.description}">Product Description</p>
+    <p th:text="${product.description}">Descrizione prodotto</p>
     <button th:if="${role != null && role == 'ADMIN'}" class="update-product">
-      <a th:href="'/admin/manage/' + ${product.id}" class="log">Update Product</a>
+      <a th:href="'/admin/manage/' + ${product.id}" class="log">Aggiorna Prodotto</a>
     </button>
     <div class="product-providers-content">
       <h1>Fornitori:</h1>

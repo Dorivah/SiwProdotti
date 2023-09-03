@@ -7,12 +7,11 @@
   <link rel="stylesheet" href="/css/common.css">
   <link rel="stylesheet" href="/css/formAdd.css">
   <link rel="icon" href="/images/carrello.ico">
-  <link href="https://fonts.googleapis.com/css?family=Roboto Condensed" rel="stylesheet">
 </head>
 <body>
 <header></header>
 <nav>
-  <img src="/images/lupetto.jpg">
+  <img src="/images/omino_con_carrello.png">
   <h2 class="logo">Siw Prodotti</h2>
   <ul>
     <li><a href="/" class="sub">Home</a></li>
@@ -34,18 +33,18 @@
   <div class="form-box">
     <div class="form-value">
       <form th:action="@{/admin/uploadProvider}" method="post" enctype="multipart/form-data" th:object="${provider}" class="form">
-        <span class="title">New Provider</span>
+        <span class="title">Nuovo Fornitore</span>
         <div th:if="${#fields.hasGlobalErrors()}">
           <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
         </div>
 
-        <input required type="text" th:field="${provider.name}" placeholder="Name" class="form--input">
+        <input required type="text" th:field="${provider.name}" placeholder="Nome" class="form--input">
         <span th:if="${#fields.hasErrors('name')}" th:errors="*{provider.name}"></span>
 
-        <input required type="text" th:field="${provider.address}" placeholder="address" class="form--input">
+        <input required type="text" th:field="${provider.address}" placeholder="Indirizzo" class="form--input">
         <span th:if="${#fields.hasErrors('address')}" th:errors="*{provider.address}"></span>
 
-        <input required type="text" th:field="${provider.email}" placeholder="email" class="form--input">
+        <input required type="text" th:field="${provider.email}" placeholder="Email" class="form--input">
         <span th:if="${#fields.hasErrors('email')}" th:errors="*{provider.email}"></span>
 
         <span><input required type="file" name="file"></span>

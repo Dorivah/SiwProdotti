@@ -32,16 +32,17 @@
 </nav>
 <div th:if="${product}" class="content">
   <div class="product-content">
-    <h1 th:text="${product.name + ', ' + product.price + '$'}">Nome, Prezzo</h1>
-    <button type="button">
-      <a th:href="'/products/'+${product.id}" class="log">Go back to Product</a>
+    <button type="button"  class="but">
+      <a th:href="'/products/'+${product.id}">Torna ai prodotti</a>
     </button>
+    <h1 th:text="${product.name + ', ' + product.price + '$'}">Nome, Prezzo</h1>
+
     <div class="product-providers">
       <div class="label">
         <div class="main-label">
           <h3>Fornitori:</h3>
-          <button type="button">
-            <a th:href="'/admin/manage/addProvider/'+${product.id}" class="log">Update</a>
+          <button type="button" class="but">
+            <a th:href="'/admin/manage/addProvider/'+${product.id}" >Aggiungi Fornitore</a>
           </button>
         </div>
         <div th:if="${providers.isEmpty()}" class="providers-content">
@@ -56,12 +57,12 @@
                   <img th:src="@{'/display/image/' + ${provider.logo.id}}">
                   <div class="card-overlay">
                     <button class="overlay-button">
-                      <a th:href="@{'/admin/manage/removeprovider/' + ${product.id} + '/' + ${provider.id}}" class="log">
-                        Remove
+                      <a th:href="@{'/admin/manage/removeProvider/' + ${product.id} + '/' + ${provider.id}}" class="log">
+                        Rimuovi
                       </a>
                     </button>
                   </div>
-                  <div class="club-info">
+                  <div class="provider-info">
                     <h4 th:text="${provider.name + ', ' + provider.address}">.</h4>
                   </div>
                 </a>
